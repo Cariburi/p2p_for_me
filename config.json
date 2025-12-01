@@ -1,0 +1,12 @@
+{
+    "message": [
+        "Dont mind this",
+        "This is just the config file for your machine",
+        "Dont store sensetive or other stuff in hear"
+    ],
+
+    "files_directory": "files/",
+    
+    "host_ip": "127.0.0.1",
+    "host_port": 4000
+}
