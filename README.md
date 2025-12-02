@@ -11,10 +11,11 @@ Just a simple p2p implementation in python
 ```cli
 python3 init.py
 ```
-  *At the end just make sure to deactivate the virtual enviroment
+   * At the end just make sure to deactivate the virtual enviroment
 ```cli
 deactivate
 ```
 
+### SMALL NOTE
 This is just a small learning project
 12/02/2025

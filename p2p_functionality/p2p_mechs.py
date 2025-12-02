@@ -4,13 +4,9 @@ import json
 from socket import socket
 from socket import AF_INET, SOCK_STREAM, gethostname, gethostbyname
 from threading import Thread, Lock
-import p2p_functionality.p2p_funcs as p2p_funcs
+from p2p_functionality import download, send_file, load_config
 
 lock = Lock()
-# Add a download command
-# LATEEERR add encoding as encryption
-
-
 commands = {
     "download": lambda x, y: download(x, y)
 }
