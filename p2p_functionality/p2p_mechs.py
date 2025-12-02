@@ -8,7 +8,8 @@ from p2p_functionality import download, send_file, load_config
 
 lock = Lock()
 commands = {
-    "download": lambda x, y: download(x, y)
+    "download": lambda x, y: download(x, y),
+    "help": lambda x, y: print("Available commands: download, help, exit")
 }
 
 class ClientMechs:
@@ -29,5 +30,33 @@ class ClientMechs:
     def run(self):
         self.sock.connect(self.target_addr)
 
+class ServerMechs:
+    def __init__(self, bind_addr: tuple[str, int]):
+        self.bind_addr = bind_addr
+        self.sock = socket(AF_INET, SOCK_STREAM)
+        self.sock.bind(self.bind_addr)
+        self.sock.listen(5)
+    
+    def handleClient(self, client_sock: socket):
+        while True:
+            command = client_sock.recv(1024).decode()
+            if not command:
+                break
+
+            if command in commands:
+                client_sock.sendall(b"ready")
+                filename = client_sock.recv(1024).decode()
+                send_file(client_sock, filename)
+            else:
+                client_sock.sendall(b"invalid command")
+    
+    def run(self):
+        print(f"Server listening on {self.bind_addr}")
+        while True:
+            client_sock, addr = self.sock.accept()
+            print(f"Connection from {addr}")
+            client_thread = Thread(target=self.handleClient, args=(client_sock,))
+            client_thread.start()
+    
 if __name__ == "__main__":
     load_config("config.json")
