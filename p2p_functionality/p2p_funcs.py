@@ -34,7 +34,7 @@ def recv_file(conn: socket, filename: str, recv_buffer=2000):
             f.write(data)
     
     print(f"Received file: {filename}")
-    
+
 def send_file(conn: socket, filename: str, send_buffer=2000):
 
     """
@@ -66,6 +66,9 @@ def print_files(file_list: list[str]):
     print("Available files:")
 
     for file in file_list:
+        if file == "README.txt":
+            continue
+
         print(f"- {file}")
 
 def load_config(filename: str):
@@ -90,3 +93,6 @@ def log_data(log_file: str, message):
         f.write(f"[{time}] {message}\n")
     
     return None
+
+if __name__ == "__main__":
+    print("This module is not meant to be run directly.")

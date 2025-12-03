@@ -35,6 +35,10 @@ server_info = ServerInfo(
 )
 
 if __name__ == "__main__":
+    print("SERVER FILE TEST")
     print("SERVER HOST: ", server_info.host)
     print("SERVER PORT: ", server_info.port)
     print("SERVER'S MAX CLIENTS: ", server_info.max_clients)
+    print("SERVER'S FILES DIRECTORY: ", server_info.files_directory)
+    print("-" * 50)
+    print("This module is not meant to be run directly.")
