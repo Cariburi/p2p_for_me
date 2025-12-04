@@ -1,11 +1,14 @@
 {
     "message": [
-        "Dont mind this",
+        "Dont mind this code block here -> Its here to act as a comment",
         "This is just the config file for your machine",
-        "Dont store sensetive or other stuff in hear"
+        "Dont store sensetive data here",
+        "Just change the ip and port to what you want",
+        "Also you can change the max clients if you want"
     ],
 
     "files_directory": "files/",
+    "log_file": "p2p_functionality/.logs/server_log",
     
     "host_ip": "127.0.0.1",
     "host_port": 4000,

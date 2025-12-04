@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 
-from p2p_funcs import load_config
+from .p2p_funcs import load_config
+from threading import Event
 
-json_file = "json_files/config.json"
+json_file = "p2p_functionality/json_files/config.json"
 
 @dataclass
 class ServerInfo:
@@ -25,13 +26,18 @@ class ServerInfo:
     port: int
     max_clients: int
     files_directory: str
+    log_file: str
+    thread_signal: Event
 
 data = load_config(json_file)
+thread_signal = Event()
 server_info = ServerInfo(
     host=data["host_ip"],
     port=data["host_port"],
     max_clients=data["max_clients"],
-    files_directory=data["files_directory"]
+    files_directory=data["files_directory"],
+    log_file=data["log_file"],
+    thread_signal=thread_signal
 )
 
 if __name__ == "__main__":

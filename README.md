@@ -9,13 +9,11 @@ Just a simple p2p implementation in python
 
 ## STARTING APPLICATION
 ```cli
-python3 init.py
+# Execute to start
+python main.py
 ```
-   * At the end just make sure to deactivate the virtual enviroment
-```cli
-deactivate
-```
-
 ### SMALL NOTE
-This is just a small learning project
+
+This is just a small project.
+This project is meant for local network(LAN) usage e.g. College or University campus, Home network. Deployment over the internet will be implemented once I make a central server for database hosting of servers that people can connect to.
 12/02/2025
