@@ -1,3 +1,8 @@
 {
+    "message": [
+        "Dont mind this. It is just a 'comment'",
+        "Edit help when adding new functions"
+    ],
+    
     "help": "Availabe commands: \n download <file_name> (download files hosted on this server) \n help (return help message"
 }
